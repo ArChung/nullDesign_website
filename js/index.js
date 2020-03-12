@@ -13,23 +13,23 @@ $(document).ready(function () {
 
 function initLinkdemo() {
     $('.tagBox .tag').click(function () {
-        window.location = "/result.html";
+        window.location = "./result.html";
     });
 
     $('#header .menuUl .btn').eq(0).click(function () {
-        window.location = "/index.html";
+        window.location = "./index.html";
     });
 
     $('#header .menuUl .btn').eq(1).click(function () {
-        window.location = "/info.html";
+        window.location = "./info.html";
     });
 
     $('#header .menuUl .btn').eq(2).click(function () {
-        window.location = "/result.html";
+        window.location = "./result.html";
     });
 
     $('.gallery .card').click(function () {
-        window.location = "/porfolio.html";
+        window.location = "./porfolio.html";
     });
 
     // $('#searchBar').click(function () {
