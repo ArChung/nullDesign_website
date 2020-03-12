@@ -1,0 +1,70 @@
+h1
+  font-size: 48px
+h2
+  font-size: 36px
+h3
+  font-size: 24px
+h4
+  font-size: 18px
+.grayTxt
+  color: #d3d3d3
+.darkGrayTxt
+  color: #757575
+
+.textSection
+  padding: 0 25px
+  max-width: 800px
+  margin-left: auto
+  margin-right: auto
+  &.wildeSection
+    max-width: 1300px
+
+
+=borderBtn  
+  position: relative
+  cursor: pointer
+  &:before
+    content: ""
+    position: absolute
+    z-index: 0
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    border-color: rgba(white,.1)
+    border-style: solid
+    border-width: 0
+    -webkit-transition-property: border-width
+    transition-property: border-width
+    -webkit-transition-duration: 0.1s
+    transition-duration: 0.1s
+    -webkit-transition-timing-function: ease-out
+    transition-timing-function: ease-out
+
+  &:hover:before
+    -webkit-transform: translateY(0)
+    transform: translateY(0)
+    border-width: 4px 
+
+
+=lineBtn($color)
+  position: relative
+  cursor: pointer
+  &:before
+    content: ""
+    position: absolute
+    left: 0
+    bottom: 0
+    height: 3px
+    background-color: rgba($color,.4)
+    width: 0%
+    // +dTime(.1s)
+    -webkit-transition-duration: 0.1s
+    transition-duration: 0.1s
+    -webkit-transition-property: width
+    transition-property: width
+    -webkit-transition-timing-function: ease-out
+    transition-timing-function: ease-out
+  &:hover:before
+    width: 100%
+
