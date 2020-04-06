@@ -25,7 +25,7 @@
   <meta property="og:url" content="" />
   <meta property="fb:app_id" content="" />
   <!-- css start-->
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
   <link rel="stylesheet" href="css/default.css">
@@ -39,7 +39,6 @@
 
   <!-- archung js -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/in-view@0.6.1/dist/in-view.min.js"></script> -->
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@13.0.1/dist/lazyload.min.js"></script>
   <script src="js/lib/TweenMax.min.js"></script>
@@ -73,16 +72,16 @@
       <div class="container">
         <div class="nav">
           <div class="menuBtn "></div>
-          <ul class="menuUl">
-            <li class='btn'><a href="#">featured.</a></li>
-            <li class='btn'><a href="#">info.</a></li>
-            <li class='btn'><a href="#">explore.</a></li>
+          <ul class="menuUl lineBtnSet">
+            <li class='lineBtn'><a href="#">featured.</a></li>
+            <li class='lineBtn'><a href="#">info.</a></li>
+            <li class='lineBtn'><a href="#">explore.</a></li>
+            <div class="line"></div>
           </ul>
         </div>
         <div class="searchBtn btn"></div>
       </div>
     </div>
-
     <div class="mainContent ">
       <div class="container">
         <div class="textSection mt-5 wildeSection">
@@ -93,7 +92,7 @@
         </div>
       </div>
 
-      <div class='slider infoSlider mt-5' data-slick='{"dots": true, "arrows": false}'>
+      <div class='slider infoSlider mt-5' data-slick='{"dots": true}'>
         <div class='slide' style="background-image: url(https://picsum.photos/1200/480?random=1);"></div>
         <div class='slide' style="background-image: url(https://picsum.photos/1200/480?random=2);"></div>
         <div class='slide' style="background-image: url(https://picsum.photos/1200/480?random=3);"></div>
@@ -152,107 +151,55 @@
         <div class="textSection mt-5">
           <h1 class='ta-c fw-b'>Our Clients</h1>
         </div>
-        <div class='gallery withoutHover g-5'>
-          <div class="galleryContainer">
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src="https://picsum.photos/1200/480?random=1"
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+        <div class='clients mt-3'>
+          <div class="clientsContainer">
+            <div class="pic">
+              <img src="./images/clients/tian.png">
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src="https://picsum.photos/300/300?random=1"
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src="./images/clients/s-select-lab.png">
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src="https://picsum.photos/300/300?random=1"
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src="./images/clients/aade.png">
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src="https://picsum.photos/300/300?random=1"
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src="./images/clients/pts.png">
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src="https://picsum.photos/300/300?random=1"
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src="./images/clients/gamania.png">
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src='https://picsum.photos/300/300?random=1'
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src='./images/clients/gogoro.png'>
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src='https://picsum.photos/300/300?random=1'
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src='./images/clients/goshare.png'>
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src='https://picsum.photos/300/300?random=1'
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src='./images/clients/viewsonic.png'>
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src='https://picsum.photos/300/300?random=1'
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src='./images/clients/mi.png'>
             </div>
-            <div class="card">
-              <div class="c-container">
-                <div class="picBox">
-                  <div class="pic">
-                    <img src='https://picsum.photos/300/300?random=1'
-                      data-src="https://picsum.photos/300/300?random=1" alt="" class="lazy-trigger">
-                  </div>
-                </div>
-              </div>
+            <div class="pic">
+              <img src='./images/clients/ntch.png'>
+            </div>
+            <div class="pic">
+              <img src='./images/clients/national-taichung-therter.png'>
+            </div>
+            <div class="pic">
+              <img src='./images/clients/tpac.png'>
+            </div>
+            <div class="pic">
+              <img src='./images/clients/taipei-fine-arts-museum.png'>
+            </div>
+            <div class="pic">
+              <img src='./images/clients/pier-2.png'>
+            </div>
+            <div class="pic">
+              <img src='./images/clients/cLab.png'>
+            </div>
+            <div class="pic">
+              <img src='./images/clients/very-mainstream.png'>
             </div>
           </div>
         </div>

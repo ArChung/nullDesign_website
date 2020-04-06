@@ -13,13 +13,15 @@ html,body
 
 *
 	box-sizing: border-box
+
 .mainContainer
 	display: flex
 	flex-direction: column
 	min-height: 100vh
-	background-color: #393939
+	background-color: #00000C
+	overflow: hidden
 	&.light-theme
-		background-color: white
+		background-color: #F2F2F2
 		color: black
 		.btn
 			+lineBtn(#757575)
@@ -49,9 +51,23 @@ html,body
 	&.mt-5
 		margin-top: 108px
 
+.lineBtnSet
+	position: relative
+	.line 
+		height: 3px
+		background-color: #757575
+		position: absolute
+		bottom: 0
+		+opacity(0)
+		&.show
+			+opacity(1)
+			+dTime(.3s)
 
 #header
 	position: relative
+	+dTime
+	&.hidden
+		margin-top: -155px
 	.logo
 		+bg('logo.png')
 		position: absolute
@@ -68,14 +84,14 @@ html,body
 			display: inline-flex
 			&:hover
 				.menuUl
-					max-width: 500px
+					// max-width: 500px
 					li
 						+opacity(1)
-						margin-top: 0
-						&:nth-child(2)
-							transition-delay: .05s
-						&:nth-child(3)
-							transition-delay: .1s
+						left: 0
+						// &:nth-child(2)
+						// 	transition-delay: .05s
+						// &:nth-child(3)
+						// 	transition-delay: .1s
 			.menuBtn
 				+bg('menuBtn.png')
 			.menuBox
@@ -83,21 +99,21 @@ html,body
 			.menuUl
 				font-size: 21px
 				display: flex 
-				overflow: hidden
-				max-width: 0px
+				// overflow: hidden
+				// max-width: 0px
 				+dTime(.6s)
 				li
 					margin: 0 21px
-					+opacity(0)
 					+dTime(.6s)
-					margin-top: 30px
+					// border: 1px solid #000
+					+opacity(0)
+					position: relative
+					left: -30px
 					
 					a
 						display: flex
 						align-items: center
 						height: 100%
-						
-						// margin: 0 7px
 
 		
 		.searchBtn
@@ -118,7 +134,7 @@ html,body
 			+dTime(1.2s)
 			+opacity(0)
 			+pad
-				width: 50%
+			width: 50%
 
 			
 
@@ -153,7 +169,8 @@ html,body
 					width: 100%
 					height: 100%
 					+coverBg
-					+dTime(1.2s)
+					transition: top 1.2s, transform 6s
+					-webkit-transition-duration: top 1.2s, transform 6s
 					+scale(1.1)
 					top: -5%
 					img 
@@ -171,23 +188,10 @@ html,body
 				+dTime(.6s)
 				h3
 					font-weight: lighter
-					// text-decoration: underline
-					// position: relative
-					// &:after
-					// 	content: ''
-					// 	width: 100%
-					// 	position: absolute
-					// 	background-color: #fff
-					// 	height: 3px
-					// 	left: 0
-					// 	bottom: 0
 				h2
 					font-weight: bold
 					line-height: 1.2em
 					margin-top: 0.1em
-					// overflow: hidden
-					// max-height: 0
-					// +opacity(0)
 					
 			
 			&.show
@@ -196,6 +200,8 @@ html,body
 				.picBox
 					.pic
 						top: 0%
+						
+
 	&:not(.withoutHover)
 		.card
 			cursor: pointer
@@ -205,6 +211,7 @@ html,body
 						width: 100%
 					.pic
 						+scale(1)
+						
 				.txtBox
 					margin-top: 0
 					+opacity(1)
@@ -228,17 +235,21 @@ html,body
 		.card
 			padding: 30px
 			height: 450px
-				
-
-	&.g-5
-		.card
-			width: 20%
-			padding: 30px
-			height: 280px
-			+pad
-				width: 33.3%
 			
-	
+.clients
+	.clientsContainer
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		.pic
+			margin: 15px 50px
+			padding: 15px 0
+			display: flex
+			height: 150px
+			align-items: center
+			img 
+				max-height: 100%
+
 #topBtn
 	// text-align: center
 	cursor: pointer
@@ -284,7 +295,7 @@ html,body
 	left: 0
 	width: 100%
 	height: 280px
-	background-color: #f2f2e6
+	background-color: #F2F2F2
 	z-index: 5
 	margin-top: -300px
 	+dTime
@@ -333,17 +344,30 @@ html,body
 	
 
 .slider
+	&.slick-dotted
+		margin-bottom: 45px
 	.slide
 		+coverBg
 	.slick-dots
-		position: relative
+		bottom: -45px
 		li 
 			margin: 0 2px
-// 	.slide
-// 		width: 100%
-// 		height: 100%
+	.slick-arrow
+		width: 50%
+		height: 100%
+		z-index: 2
+		// border: 1px solid #000
+		&.slick-next
+			right: 0
+			cursor: url('../images/arrow-right-solid.png'),auto
+		&.slick-prev
+			left: 0
+			cursor: url('../images/arrow-left-solid.png'),auto
 
-// porfplio
+
+		&:before
+			display: none
+			
 .videoWrap
 	padding: 15px
 .styleSlider

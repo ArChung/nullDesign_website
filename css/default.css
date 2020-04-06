@@ -3294,10 +3294,11 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #393939;
+  background-color: #00000C;
+  overflow: hidden;
 }
 .mainContainer.light-theme {
-  background-color: white;
+  background-color: #F2F2F2;
   color: black;
 }
 .mainContainer.light-theme .btn {
@@ -3400,8 +3401,35 @@ html, body {
   margin-top: 108px;
 }
 
+.lineBtnSet {
+  position: relative;
+}
+.lineBtnSet .line {
+  height: 3px;
+  background-color: #757575;
+  position: absolute;
+  bottom: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+.lineBtnSet .line.show {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+
 #header {
   position: relative;
+  -moz-transition: all, 0.6s;
+  -o-transition: all, 0.6s;
+  -webkit-transition: all, 0.6s;
+  transition: all, 0.6s;
+}
+#header.hidden {
+  margin-top: -155px;
 }
 #header .logo {
   width: 282px;
@@ -3422,19 +3450,10 @@ html, body {
 #header .container .nav {
   display: inline-flex;
 }
-#header .container .nav:hover .menuUl {
-  max-width: 500px;
-}
 #header .container .nav:hover .menuUl li {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
-  margin-top: 0;
-}
-#header .container .nav:hover .menuUl li:nth-child(2) {
-  transition-delay: 0.05s;
-}
-#header .container .nav:hover .menuUl li:nth-child(3) {
-  transition-delay: 0.1s;
+  left: 0;
 }
 #header .container .nav .menuBtn {
   width: 70px;
@@ -3447,8 +3466,6 @@ html, body {
 #header .container .nav .menuUl {
   font-size: 21px;
   display: flex;
-  overflow: hidden;
-  max-width: 0px;
   -moz-transition: all, 0.6s;
   -o-transition: all, 0.6s;
   -webkit-transition: all, 0.6s;
@@ -3456,13 +3473,14 @@ html, body {
 }
 #header .container .nav .menuUl li {
   margin: 0 21px;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
   -moz-transition: all, 0.6s;
   -o-transition: all, 0.6s;
   -webkit-transition: all, 0.6s;
   transition: all, 0.6s;
-  margin-top: 30px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  position: relative;
+  left: -30px;
 }
 #header .container .nav .menuUl li a {
   display: flex;
@@ -3495,11 +3513,7 @@ html, body {
   transition: all, 1.2s;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-}
-@media screen and (max-width: 1024px) {
-  .gallery .galleryContainer .card {
-    width: 50%;
-  }
+  width: 50%;
 }
 .gallery .galleryContainer .card .c-container {
   width: 100%;
@@ -3539,10 +3553,8 @@ html, body {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: 50% 50%;
-  -moz-transition: all, 1.2s;
-  -o-transition: all, 1.2s;
-  -webkit-transition: all, 1.2s;
-  transition: all, 1.2s;
+  transition: top 1.2s, transform 6s;
+  -webkit-transition-duration: top 1.2s, transform 6s;
   -moz-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
   -webkit-transform: scale(1.1, 1.1);
@@ -3618,15 +3630,21 @@ html, body {
   padding: 30px;
   height: 450px;
 }
-.gallery.g-5 .card {
-  width: 20%;
-  padding: 30px;
-  height: 280px;
+
+.clients .clientsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-@media screen and (max-width: 1024px) {
-  .gallery.g-5 .card {
-    width: 33.3%;
-  }
+.clients .clientsContainer .pic {
+  margin: 15px 50px;
+  padding: 15px 0;
+  display: flex;
+  height: 150px;
+  align-items: center;
+}
+.clients .clientsContainer .pic img {
+  max-height: 100%;
 }
 
 #topBtn {
@@ -3694,7 +3712,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 280px;
-  background-color: #f2f2e6;
+  background-color: #F2F2F2;
   z-index: 5;
   margin-top: -300px;
   -moz-transition: all, 0.6s;
@@ -3756,6 +3774,9 @@ html, body {
   height: 455px;
 }
 
+.slider.slick-dotted {
+  margin-bottom: 45px;
+}
 .slider .slide {
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -3764,10 +3785,26 @@ html, body {
   background-position: 50% 50%;
 }
 .slider .slick-dots {
-  position: relative;
+  bottom: -45px;
 }
 .slider .slick-dots li {
   margin: 0 2px;
+}
+.slider .slick-arrow {
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+}
+.slider .slick-arrow.slick-next {
+  right: 0;
+  cursor: url("../images/arrow-right-solid.png"), auto;
+}
+.slider .slick-arrow.slick-prev {
+  left: 0;
+  cursor: url("../images/arrow-left-solid.png"), auto;
+}
+.slider .slick-arrow:before {
+  display: none;
 }
 
 .videoWrap {
