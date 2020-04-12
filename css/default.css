@@ -3658,7 +3658,7 @@ html, body {
 
 #topBtn {
   cursor: pointer;
-  padding: 15px 0;
+  padding: 15px 0 3px;
   display: inline-block;
   margin: 70px auto;
 }
