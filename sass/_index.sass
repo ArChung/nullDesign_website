@@ -15,6 +15,7 @@ html,body
 	box-sizing: border-box
 
 .mainContainer
+	padding-top: 150px
 	display: flex
 	flex-direction: column
 	min-height: 100vh
@@ -26,13 +27,14 @@ html,body
 		.btn
 			+lineBtn(#757575)
 		#header
+			background-color: #F2F2F2
 			.logo
 				+bg('logo-dark.png')
 			.searchBtn
 				+bg('searchBtn-dark.png')
 			.container
 				.nav
-					.menuBtn
+					.menuToggleBtn
 						+bg('menuBtn-dark.png')
 		#topBtn
 			.arr
@@ -51,11 +53,12 @@ html,body
 	&.mt-5
 		margin-top: 108px
 
+
 .lineBtnSet
 	position: relative
 	.line 
 		height: 3px
-		background-color: #757575
+		background-color: rgba(117, 117, 117, 0.4)
 		position: absolute
 		bottom: 0
 		+opacity(0)
@@ -63,11 +66,17 @@ html,body
 			+opacity(1)
 			+dTime(.3s)
 
+
+// header
 #header
-	position: relative
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 2
 	+dTime
-	&.hidden
-		margin-top: -155px
+	// &.hidden
+	// 	margin-top: -155px
 	.logo
 		+bg('logo.png')
 		position: absolute
@@ -82,38 +91,40 @@ html,body
 		align-items: center
 		.nav
 			display: inline-flex
+			// border: 1px solid #000
 			&:hover
 				.menuUl
-					// max-width: 500px
-					li
-						+opacity(1)
-						left: 0
-						// &:nth-child(2)
-						// 	transition-delay: .05s
-						// &:nth-child(3)
-						// 	transition-delay: .1s
-			.menuBtn
+					.line 
+						bottom: 15px
+					.menuBtn
+						&:nth-child(2)
+							a
+								transition-delay: .06s
+						&:nth-child(3)
+							a
+								transition-delay: .12s
+						a
+							left: 0%
+							+opacity(1)
+
+			.menuToggleBtn
 				+bg('menuBtn.png')
 			.menuBox
 				height: 100%
 			.menuUl
-				font-size: 21px
+				font-size: 18px
 				display: flex 
-				// overflow: hidden
-				// max-width: 0px
-				+dTime(.6s)
-				li
+				.menuBtn
 					margin: 0 21px
-					+dTime(.6s)
-					// border: 1px solid #000
-					+opacity(0)
-					position: relative
-					left: -30px
-					
+					overflow: hidden
 					a
 						display: flex
 						align-items: center
 						height: 100%
+						position: relative
+						left: -100%
+						+dTime(1s)
+						+opacity(0)
 
 		
 		.searchBtn
@@ -229,7 +240,7 @@ html,body
 			width: 50%
 		.card:nth-child(n)
 			+pad
-				width: 50%
+			width: 50%
 	
 	&.g-4
 		.card

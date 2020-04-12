@@ -19,14 +19,21 @@ $(document).ready(function () {
 })
 
 function initMenu() {
-    setInterval(function () {
-        console.log(window.pageYOffset);
-        if (window.pageYOffset > 5) {
-            $('#header').addClass('hidden');
-        } else {
-            $('#header').removeClass('hidden');
-        }
-    }, 100);
+    // $('.nav').mouseover(function(){
+    //     $('#header .menuUl').addClass('show');
+    // });
+
+    // $('#header .menuToggleBtn').mouseleave(function(){
+    //     $('#header .menuUl').removeClass('show');
+    // });
+    // setInterval(function () {
+    //     console.log(window.pageYOffset);
+    //     if (window.pageYOffset > 5) {
+    //         $('#header').addClass('hidden');
+    //     } else {
+    //         $('#header').removeClass('hidden');
+    //     }
+    // }, 100);
 
 }
 
