@@ -16,7 +16,59 @@ $(document).ready(function () {
 
     initMenu();
 
+    initGallery();
+
+
 })
+
+function initGallery() {
+
+    $('.gallery .card').on('mouseenter', function (e) {
+        var t = $(this);
+        var tl = new TimelineMax();
+
+        var delay = 0.15;
+        var count = 0;
+
+        TweenMax.killTweensOf(t);
+
+
+        t.find('.ani-text').each(function () {
+            var tt = $(this);
+
+            TweenMax.set(tt.find('>*'), {
+                top: tt.height() * -1
+            })
+
+            TweenMax.to(tt.find('>*'), 1, {
+                top: 0,
+                delay: delay * count
+            })
+            count += 1;
+        })
+    });
+
+    $('.gallery .card').on('mouseleave', function (e) {
+        var t = $(this);
+        var tl = new TimelineMax();
+
+        var delay = 0.1;
+        var count = 0;
+
+        TweenMax.killTweensOf(t);
+
+        t.find('.ani-text').each(function () {
+            var tt = $(this);
+
+            TweenMax.to(tt.find('>*'), 1, {
+                top: tt.height(),
+                delay: delay * count,
+                ease: Power1.easeIn
+            })
+            count += 1;
+        })
+    });
+}
 
 function initMenu() {
     // $('.nav').mouseover(function(){
@@ -34,6 +86,17 @@ function initMenu() {
     //         $('#header').removeClass('hidden');
     //     }
     // }, 100);
+
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            $('#header').removeClass('hidden');
+        } else {
+            $('#header').addClass('hidden');
+        }
+        prevScrollpos = currentScrollPos;
+    }
 
 }
 

@@ -10,20 +10,24 @@ html,body
 	padding: 0 25px
 	margin-left: auto
 	margin-right: auto
+	width: 100%
 
 *
 	box-sizing: border-box
 
 .mainContainer
-	padding-top: 150px
+	padding-top: 125px
 	display: flex
 	flex-direction: column
 	min-height: 100vh
 	background-color: #00000C
 	overflow: hidden
+	
+body
 	&.light-theme
-		background-color: #F2F2F2
-		color: black
+		.mainContainer
+			background-color: #F2F2F2
+			color: black
 		.btn
 			+lineBtn(#757575)
 		#header
@@ -75,17 +79,17 @@ html,body
 	width: 100%
 	z-index: 2
 	+dTime
-	// &.hidden
-	// 	margin-top: -155px
+	height: 125px
+	&.hidden
+		margin-top: -125px
 	.logo
 		+bg('logo.png')
 		position: absolute
 		top: 50%
 		left: 50%
-		margin-left: -141px
-		margin-top: -33px
+		transform: translateX(-50%) translateY(-50%)
 	.container
-		height: 155px
+		height: 100%
 		display: flex
 		justify-content: space-between
 		align-items: center
@@ -95,7 +99,7 @@ html,body
 			&:hover
 				.menuUl
 					.line 
-						bottom: 15px
+						bottom: 15%
 					.menuBtn
 						&:nth-child(2)
 							a
@@ -131,11 +135,12 @@ html,body
 			+bg('searchBtn.png')
 
 .gallery	
-	padding: 23px 0
+	// padding: 23px 0
 	.galleryContainer
 		width: 100%
 		display: flex
 		flex-wrap: wrap
+		padding-bottom: 70px
 		.card
 			padding: 7px
 			width: 25%
@@ -154,9 +159,6 @@ html,body
 				height: 100%
 				overflow: hidden
 				position: relative
-				display: flex
-				align-items: center
-				justify-content: center
 				padding: 20px
 				background-color: rgba(white,.1)
 
@@ -165,14 +167,17 @@ html,body
 				position: absolute
 				width: 100%
 				height: 100%
+				top: 0
+				left: 0
 				&:after
 					content: ''
 					position: absolute
 					top: 0
 					left: 0
-					width: 0%
+					width: 100%
 					height: 100%
-					background-color: rgba(black,.6)
+					background-color: rgba(black,.05)
+					+opacity(0)
 					+dTime(.6s)
 
 				.pic
@@ -191,18 +196,37 @@ html,body
 
 
 			.txtBox
-				position: relative
-				z-index: 1
-				text-align: center
-				+opacity(0)
-				margin-top: 30px
-				+dTime(.6s)
-				h3
-					font-weight: lighter
-				h2
+				position: absolute
+				width: 100%
+				height: 100%
+				top: 0
+				left: 0
+				padding: 25px
+				color: #fff
+				.ani-text
+					position: relative
+					overflow: hidden
+					> div
+						position: relative
+						top: -500px
+				.client-name
+					font-size: 20px
+				.project-name
+					font-size: 32px
 					font-weight: bold
-					line-height: 1.2em
-					margin-top: 0.1em
+				// position: relative
+				// z-index: 1
+				// text-align: center
+				// +opacity(0)
+				// margin-top: 30px
+				// +dTime(.6s)
+				// border: 1px solid #000
+				// h3
+				// 	font-weight: lighter
+				// h2
+				// 	font-weight: bold
+				// 	line-height: 1.2em
+				// 	margin-top: 0.1em
 					
 			
 			&.show
@@ -219,7 +243,9 @@ html,body
 			&:hover
 				.picBox
 					&:after
-						width: 100%
+						// width: 100%
+						+opacity(1)
+
 					.pic
 						+scale(1)
 						
@@ -240,7 +266,7 @@ html,body
 			width: 50%
 		.card:nth-child(n)
 			+pad
-			width: 50%
+				width: 50%
 	
 	&.g-4
 		.card

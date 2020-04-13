@@ -3238,15 +3238,15 @@ ul li {
 }
 
 h1 {
-  font-size: 48px;
-}
-
-h2 {
   font-size: 36px;
 }
 
+h2 {
+  font-size: 32px;
+}
+
 h3 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 h4 {
@@ -3284,6 +3284,7 @@ html, body {
   padding: 0 25px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 * {
@@ -3291,22 +3292,23 @@ html, body {
 }
 
 .mainContainer {
-  padding-top: 150px;
+  padding-top: 125px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: #00000C;
   overflow: hidden;
 }
-.mainContainer.light-theme {
+
+body.light-theme .mainContainer {
   background-color: #F2F2F2;
   color: black;
 }
-.mainContainer.light-theme .btn {
+body.light-theme .btn {
   position: relative;
   cursor: pointer;
 }
-.mainContainer.light-theme .btn:before {
+body.light-theme .btn:before {
   content: "";
   position: absolute;
   left: 0;
@@ -3321,28 +3323,28 @@ html, body {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.mainContainer.light-theme .btn:hover:before {
+body.light-theme .btn:hover:before {
   width: 100%;
 }
-.mainContainer.light-theme #header {
+body.light-theme #header {
   background-color: #F2F2F2;
 }
-.mainContainer.light-theme #header .logo {
-  width: 282px;
-  height: 70px;
+body.light-theme #header .logo {
+  width: 222px;
+  height: 55px;
   background-image: url("../images/logo-dark.png");
 }
-.mainContainer.light-theme #header .searchBtn {
+body.light-theme #header .searchBtn {
   width: 70px;
   height: 70px;
   background-image: url("../images/searchBtn-dark.png");
 }
-.mainContainer.light-theme #header .container .nav .menuToggleBtn {
-  width: 70px;
-  height: 70px;
+body.light-theme #header .container .nav .menuToggleBtn {
+  width: 55px;
+  height: 55px;
   background-image: url("../images/menuBtn-dark.png");
 }
-.mainContainer.light-theme #topBtn .arr {
+body.light-theme #topBtn .arr {
   width: 31px;
   height: 17px;
   background-image: url("../images/arr_up-dark.png");
@@ -3435,6 +3437,10 @@ html, body {
   -o-transition: all, 0.6s;
   -webkit-transition: all, 0.6s;
   transition: all, 0.6s;
+  height: 125px;
+}
+#header.hidden {
+  margin-top: -125px;
 }
 #header .logo {
   width: 282px;
@@ -3443,11 +3449,10 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -141px;
-  margin-top: -33px;
+  transform: translateX(-50%) translateY(-50%);
 }
 #header .container {
-  height: 155px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -3456,7 +3461,7 @@ html, body {
   display: inline-flex;
 }
 #header .container .nav:hover .menuUl .line {
-  bottom: 15px;
+  bottom: 15%;
 }
 #header .container .nav:hover .menuUl .menuBtn:nth-child(2) a {
   transition-delay: 0.06s;
@@ -3504,13 +3509,11 @@ html, body {
   background-image: url("../images/searchBtn.png");
 }
 
-.gallery {
-  padding: 23px 0;
-}
 .gallery .galleryContainer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 70px;
 }
 .gallery .galleryContainer .card {
   padding: 7px;
@@ -3531,9 +3534,6 @@ html, body {
   height: 100%;
   overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -3541,15 +3541,19 @@ html, body {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 .gallery .galleryContainer .card .picBox:after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 0%;
+  width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.05);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
   -moz-transition: all, 0.6s;
   -o-transition: all, 0.6s;
   -webkit-transition: all, 0.6s;
@@ -3579,24 +3583,28 @@ html, body {
   opacity: 0;
 }
 .gallery .galleryContainer .card .txtBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  color: #fff;
+}
+.gallery .galleryContainer .card .txtBox .ani-text {
   position: relative;
-  z-index: 1;
-  text-align: center;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  margin-top: 30px;
-  -moz-transition: all, 0.6s;
-  -o-transition: all, 0.6s;
-  -webkit-transition: all, 0.6s;
-  transition: all, 0.6s;
+  overflow: hidden;
 }
-.gallery .galleryContainer .card .txtBox h3 {
-  font-weight: lighter;
+.gallery .galleryContainer .card .txtBox .ani-text > div {
+  position: relative;
+  top: -500px;
 }
-.gallery .galleryContainer .card .txtBox h2 {
+.gallery .galleryContainer .card .txtBox .client-name {
+  font-size: 20px;
+}
+.gallery .galleryContainer .card .txtBox .project-name {
+  font-size: 32px;
   font-weight: bold;
-  line-height: 1.2em;
-  margin-top: 0.1em;
 }
 .gallery .galleryContainer .card.show {
   top: 0;
@@ -3610,7 +3618,8 @@ html, body {
   cursor: pointer;
 }
 .gallery:not(.withoutHover) .card:hover .picBox:after {
-  width: 100%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
 }
 .gallery:not(.withoutHover) .card:hover .picBox .pic {
   -moz-transform: scale(1, 1);
@@ -3632,8 +3641,10 @@ html, body {
 .gallery.gallery-irregular .card:nth-child(13n+3), .gallery.gallery-irregular .card:nth-child(13n+7), .gallery.gallery-irregular .card:nth-child(13n+8), .gallery.gallery-irregular .card:nth-child(13n+13) {
   width: 50%;
 }
-.gallery.gallery-irregular .card:nth-child(n) {
-  width: 50%;
+@media screen and (max-width: 1024px) {
+  .gallery.gallery-irregular .card:nth-child(n) {
+    width: 50%;
+  }
 }
 .gallery.g-4 .card {
   padding: 30px;
