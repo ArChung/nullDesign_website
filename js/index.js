@@ -37,11 +37,11 @@ function initGallery() {
             var tt = $(this);
 
             TweenMax.set(tt.find('>*'), {
-                top: tt.height() * -1
+                y: tt.height() * -1
             })
 
             TweenMax.to(tt.find('>*'), 1, {
-                top: 0,
+                y: 0,
                 delay: delay * count
             })
             count += 1;
@@ -61,7 +61,7 @@ function initGallery() {
             var tt = $(this);
 
             TweenMax.to(tt.find('>*'), 1, {
-                top: tt.height(),
+                y: tt.height(),
                 delay: delay * count,
                 ease: Power1.easeIn
             })
@@ -97,6 +97,10 @@ function initMenu() {
         }
         prevScrollpos = currentScrollPos;
     }
+
+    $(".menuToggleBtn").click(function(){
+        $("#header .menuUl").addClass('moblie-open')
+    })
 
 }
 
@@ -191,7 +195,7 @@ function initTopBtn() {
 function initSearchBtn() {
     $('.searchBtn').click(function () {
         $("#searchBar").addClass('show');
-        $('.mainContent').addClass('mt-5');
+        $('.mainContent').addClass('goDown');
 
     });
 
@@ -207,7 +211,7 @@ function initSearchBtn() {
 
     function clozSearchBar() {
         $("#searchBar").removeClass('show');
-        $('.mainContent').removeClass('mt-5');
+        $('.mainContent').removeClass('goDown');
     }
 }
 

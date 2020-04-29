@@ -3402,9 +3402,11 @@ body.light-theme #topBtn .arr {
   -webkit-transition: all, 0.6s;
   transition: all, 0.6s;
   margin-top: 0;
+  will-change: transform, padding-bottom;
 }
-.mainContent.mt-5 {
-  margin-top: 108px;
+.mainContent.goDown {
+  transform: translateY(110px);
+  padding-bottom: 110px;
 }
 
 .lineBtnSet {
@@ -3438,9 +3440,10 @@ body.light-theme #topBtn .arr {
   -webkit-transition: all, 0.6s;
   transition: all, 0.6s;
   height: 125px;
+  will-change: transform;
 }
 #header.hidden {
-  margin-top: -125px;
+  transform: translateY(-100%);
 }
 #header .logo {
   width: 282px;
@@ -3459,20 +3462,6 @@ body.light-theme #topBtn .arr {
 }
 #header .container .nav {
   display: inline-flex;
-}
-#header .container .nav:hover .menuUl .line {
-  bottom: 15%;
-}
-#header .container .nav:hover .menuUl .menuBtn:nth-child(2) a {
-  transition-delay: 0.06s;
-}
-#header .container .nav:hover .menuUl .menuBtn:nth-child(3) a {
-  transition-delay: 0.12s;
-}
-#header .container .nav:hover .menuUl .menuBtn a {
-  left: 0%;
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
 }
 #header .container .nav .menuToggleBtn {
   width: 70px;
@@ -3503,6 +3492,20 @@ body.light-theme #topBtn .arr {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
+#header .container .nav:hover .menuUl .line {
+  bottom: 15%;
+}
+#header .container .nav:hover .menuUl .menuBtn:nth-child(2) a {
+  transition-delay: 0.06s;
+}
+#header .container .nav:hover .menuUl .menuBtn:nth-child(3) a {
+  transition-delay: 0.12s;
+}
+#header .container .nav:hover .menuUl .menuBtn a {
+  left: 0%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
 #header .container .searchBtn {
   width: 70px;
   height: 70px;
@@ -3518,8 +3521,8 @@ body.light-theme #topBtn .arr {
 .gallery .galleryContainer .card {
   padding: 7px;
   width: 25%;
-  position: relative;
-  top: 60px;
+  transform: translateY(70px);
+  will-change: transform;
   height: 480px;
   -moz-transition: all, 1.2s;
   -o-transition: all, 1.2s;
@@ -3543,6 +3546,12 @@ body.light-theme #topBtn .arr {
   height: 100%;
   top: 0;
   left: 0;
+  -moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+  transition: transform 6s;
+  will-change: transform;
 }
 .gallery .galleryContainer .card .picBox:after {
   content: "";
@@ -3568,13 +3577,10 @@ body.light-theme #topBtn .arr {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: 50% 50%;
-  transition: top 1.2s, transform 6s;
-  -webkit-transition-duration: top 1.2s, transform 6s;
-  -moz-transform: scale(1.1, 1.1);
-  -ms-transform: scale(1.1, 1.1);
-  -webkit-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
-  top: -5%;
+  transition: transform 1.2s;
+  -webkit-transition-duration: transform 1.2s;
+  transform: translateY(-5%);
+  will-change: transform;
 }
 .gallery .galleryContainer .card .picBox .pic img {
   width: 100%;
@@ -3597,7 +3603,8 @@ body.light-theme #topBtn .arr {
 }
 .gallery .galleryContainer .card .txtBox .ani-text > div {
   position: relative;
-  top: -500px;
+  will-change: transform;
+  transform: translateY(-500px);
 }
 .gallery .galleryContainer .card .txtBox .client-name {
   font-size: 20px;
@@ -3607,28 +3614,23 @@ body.light-theme #topBtn .arr {
   font-weight: bold;
 }
 .gallery .galleryContainer .card.show {
-  top: 0;
+  transform: translateY(0px);
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 .gallery .galleryContainer .card.show .picBox .pic {
-  top: 0%;
+  transform: translateY(0px);
 }
 .gallery:not(.withoutHover) .card {
   cursor: pointer;
 }
-.gallery:not(.withoutHover) .card:hover .picBox:after {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-}
-.gallery:not(.withoutHover) .card:hover .picBox .pic {
+.gallery:not(.withoutHover) .card:hover .picBox {
   -moz-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-.gallery:not(.withoutHover) .card:hover .txtBox {
-  margin-top: 0;
+.gallery:not(.withoutHover) .card:hover .picBox:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
@@ -3735,14 +3737,15 @@ body.light-theme #topBtn .arr {
   height: 280px;
   background-color: #F2F2F2;
   z-index: 5;
-  margin-top: -300px;
+  will-change: transform;
+  transform: translateY(-110%);
   -moz-transition: all, 0.6s;
   -o-transition: all, 0.6s;
   -webkit-transition: all, 0.6s;
   transition: all, 0.6s;
 }
 #searchBar.show {
-  margin-top: 0;
+  transform: translateY(0%);
 }
 #searchBar .container {
   padding-top: 85px;
