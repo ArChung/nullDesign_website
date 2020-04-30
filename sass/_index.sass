@@ -117,7 +117,8 @@ body
 						align-items: center
 						height: 100%
 						position: relative
-						left: -100%
+						transform: translateX(-100%)
+						will-change: transform
 						+dTime(1s)
 						+opacity(0)
 
@@ -134,7 +135,7 @@ body
 							a
 								transition-delay: .12s
 						a
-							left: 0%
+							transform: translateX(0%)
 							+opacity(1)
 		
 		.searchBtn

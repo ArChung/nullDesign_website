@@ -3484,7 +3484,8 @@ body.light-theme #topBtn .arr {
   align-items: center;
   height: 100%;
   position: relative;
-  left: -100%;
+  transform: translateX(-100%);
+  will-change: transform;
   -moz-transition: all, 1s;
   -o-transition: all, 1s;
   -webkit-transition: all, 1s;
@@ -3502,7 +3503,7 @@ body.light-theme #topBtn .arr {
   transition-delay: 0.12s;
 }
 #header .container .nav:hover .menuUl .menuBtn a {
-  left: 0%;
+  transform: translateX(0%);
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
