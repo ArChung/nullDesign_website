@@ -3329,11 +3329,6 @@ body.light-theme .btn:hover:before {
 body.light-theme #header {
   background-color: #F2F2F2;
 }
-body.light-theme #header .logo {
-  width: 222px;
-  height: 55px;
-  background-image: url("../images/logo-dark.png");
-}
 body.light-theme #header .searchBtn {
   width: 70px;
   height: 70px;
@@ -3445,14 +3440,19 @@ body.light-theme #topBtn .arr {
 #header.hidden {
   transform: translateY(-100%);
 }
-#header .logo {
-  width: 282px;
-  height: 70px;
-  background-image: url("../images/logo.png");
+#header #logo {
+  cursor: pointer;
+  width: 222px;
+  height: 55px;
+  overflow: hidden;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+#header #logo .lottie {
+  width: 100%;
+  transform: translateY(-38%);
 }
 #header .container {
   height: 100%;
@@ -3463,10 +3463,9 @@ body.light-theme #topBtn .arr {
 #header .container .nav {
   display: inline-flex;
 }
-#header .container .nav .menuToggleBtn {
-  width: 70px;
-  height: 70px;
-  background-image: url("../images/menuBtn.png");
+#header .container .nav #menuToggleBtn {
+  width: 55px;
+  height: 55px;
 }
 #header .container .nav .menuBox {
   height: 100%;
@@ -3614,12 +3613,12 @@ body.light-theme #topBtn .arr {
   font-size: 32px;
   font-weight: bold;
 }
-.gallery .galleryContainer .card.show {
+.gallery .galleryContainer .card.enter.loaded {
   transform: translateY(0px);
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-.gallery .galleryContainer .card.show .picBox .pic {
+.gallery .galleryContainer .card.enter.loaded .picBox .pic {
   transform: translateY(0px);
 }
 .gallery:not(.withoutHover) .card {

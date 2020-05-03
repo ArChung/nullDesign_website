@@ -39,7 +39,8 @@
     <!-- archung js -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/in-view@0.6.1/dist/in-view.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@13.0.1/dist/lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.8/lottie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@15.1.1/dist/lazyload.min.js"></script>
     <script src="js/lib/TweenMax.min.js"></script>
     <script src="js/lib/TimelineMax.min.js"></script>
     <script type="text/javascript" src="js/ChungTool.js"></script>
@@ -68,10 +69,14 @@
     </div>
     <div class="mainContainer ">
         <div id="header">
-            <div class="logo"></div>
+            <div id="logo">
+                <div class="lottie"></div>
+            </div>
             <div class="container">
                 <div class="nav">
-                    <div class="menuToggleBtn"></div>
+                    <div id="menuToggleBtn">
+                        <div class="lottie"></div>
+                    </div>
                     <ul class="menuUl lineBtnSet">
                         <li class='menuBtn lineBtn'><a href="#">featured.</a></li>
                         <li class='menuBtn lineBtn'><a href="#">info.</a></li>
@@ -91,10 +96,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img src="https://picsum.photos/1200/480?random=1"
-                                        data-src="https://picsum.photos/1200/480?random=1" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=1"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -109,9 +111,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=2" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=2"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -126,9 +126,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=3" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=3"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -143,9 +141,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=4" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=4"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -160,9 +156,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=5" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=5"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -177,9 +171,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=6" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=6"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -194,9 +186,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=7" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=7"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -211,9 +201,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=8" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=8"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -228,9 +216,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=9" alt="" class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=9"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -245,10 +231,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=11" alt=""
-                                        class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=10"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -263,10 +246,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=12" alt=""
-                                        class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=11"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -281,10 +261,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=13" alt=""
-                                        class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=12"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -299,10 +276,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=14" alt=""
-                                        class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=13"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -317,10 +291,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=15" alt=""
-                                        class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=14"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">
@@ -335,10 +306,7 @@
                     <div class="card">
                         <div class="c-container">
                             <div class="picBox">
-                                <div class="pic">
-                                    <img data-src="https://picsum.photos/1200/480?random=16" alt=""
-                                        class="lazy-trigger">
-                                </div>
+                                <div class="pic lazy" data-bg="https://picsum.photos/1200/480?random=15"></div>
                             </div>
                             <div class="txtBox">
                                 <div class="client-name ani-text">

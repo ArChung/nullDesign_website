@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // initLoading();
 
-    initInView();
+    initLottie();
 
     initTopBtn();
 
@@ -20,8 +20,41 @@ $(document).ready(function () {
 
 
 })
+var logo_ani;
+var menu_ani;
+
+function initLottie() {
+    logo_ani = lottie.loadAnimation({
+        container: $('#logo .lottie')[0], // 裝動畫的容器
+        renderer: 'svg',
+        autoplay: true,
+        path: './lottie/logo.json' // 動畫json 檔
+    });
+
+    menu_ani = lottie.loadAnimation({
+        container: $('#menuToggleBtn .lottie')[0], // 裝動畫的容器
+        renderer: 'svg',
+        autoplay: true,
+        loop: true,
+        path: './lottie/menu.json' // 動畫json 檔
+    });
+}
 
 function initGallery() {
+    var lazyContent = new LazyLoad({
+        elements_selector: ".lazy",
+        thresholds: 0,
+        // use_native: true // <-- there you go
+        callback_enter: function (el) {
+            $(el).closest('.card').addClass('enter');
+        },
+        callback_loaded: function (el) {
+            $(el).closest('.card').addClass('loaded');
+        }
+    });
+
+    // lazyContent.loadAll();
+
 
     $('.gallery .card').on('mouseenter', function (e) {
         var t = $(this);
@@ -98,7 +131,7 @@ function initMenu() {
         prevScrollpos = currentScrollPos;
     }
 
-    $(".menuToggleBtn").click(function(){
+    $(".menuToggleBtn").click(function () {
         $("#header .menuUl").addClass('moblie-open')
     })
 
@@ -170,21 +203,7 @@ function initLinkdemo() {
 //     });
 // }
 
-function initInView() {
-    var myLazyLoad = new LazyLoad({
-        elements_selector: ".gallery .lazy-trigger",
-        callback_enter: function (el) {
-            console.log('enter:' + $(el).closest('.card').index());
-        },
-        callback_loaded: function (el) {
-            console.log('loaded: ' + $(el).closest('.card').index());
-            var src = $(el).attr('data-src');
-            $(el).closest('.pic').css('background-image', 'url(' + src + ')');
-            $(el).closest('.card').addClass('show');
-        },
-    });
-    myLazyLoad.update();
-}
+
 
 function initTopBtn() {
     $("#topBtn").click(function () {
