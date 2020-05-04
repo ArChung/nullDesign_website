@@ -41,39 +41,43 @@ function initLottie() {
 }
 
 function initGallery() {
+    var lazyImg = '.lazy';
+
     var lazyContent = new LazyLoad({
-        elements_selector: ".lazy",
-        thresholds: 0,
-        // use_native: true // <-- there you go
-        callback_enter: function (el) {
-            $(el).closest('.card').addClass('enter');
-        },
+        elements_selector: lazyImg,
+        thresholds: '400px',
         callback_loaded: function (el) {
             $(el).closest('.card').addClass('loaded');
-        }
+        },
     });
 
-    // lazyContent.loadAll();
+
+    inView(lazyImg)
+        .on('enter', function (el) {
+            setTimeout(function () {
+                $(el).closest('.card').addClass('enter moblie_enter');
+            }, Math.random() * 300)
+        })
+        .on('exit', function (el) {
+            $(el).closest('.card').removeClass('moblie_enter');
+        });
+
+
 
 
     $('.gallery .card').on('mouseenter', function (e) {
         var t = $(this);
-        var tl = new TimelineMax();
-
         var delay = 0.15;
         var count = 0;
-
-        TweenMax.killTweensOf(t);
-
-
         t.find('.ani-text').each(function () {
-            var tt = $(this);
+            var tt = $(this).find('>*');
+            TweenMax.killTweensOf(tt);
 
-            TweenMax.set(tt.find('>*'), {
+            TweenMax.set(tt, {
                 y: tt.height() * -1
             })
 
-            TweenMax.to(tt.find('>*'), 1, {
+            TweenMax.to(tt, 1, {
                 y: 0,
                 delay: delay * count
             })
@@ -83,17 +87,15 @@ function initGallery() {
 
     $('.gallery .card').on('mouseleave', function (e) {
         var t = $(this);
-        var tl = new TimelineMax();
 
         var delay = 0.1;
         var count = 0;
-
-        TweenMax.killTweensOf(t);
-
         t.find('.ani-text').each(function () {
-            var tt = $(this);
+            var tt = $(this).find('>*');
 
-            TweenMax.to(tt.find('>*'), 1, {
+            TweenMax.killTweensOf(tt);
+
+            TweenMax.to(tt, 1, {
                 y: tt.height(),
                 delay: delay * count,
                 ease: Power1.easeIn

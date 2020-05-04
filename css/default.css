@@ -3601,7 +3601,7 @@ body.light-theme #topBtn .arr {
   position: relative;
   overflow: hidden;
 }
-.gallery .galleryContainer .card .txtBox .ani-text > div {
+.gallery .galleryContainer .card .txtBox .ani-text > * {
   position: relative;
   will-change: transform;
   transform: translateY(-500px);
