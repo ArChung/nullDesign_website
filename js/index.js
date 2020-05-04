@@ -129,6 +129,8 @@ function initMenu() {
             $('#header').removeClass('hidden');
         } else {
             $('#header').addClass('hidden');
+            $('#searchBar').removeClass('show');
+
         }
         prevScrollpos = currentScrollPos;
     }
@@ -215,9 +217,14 @@ function initTopBtn() {
 
 function initSearchBtn() {
     $('.searchBtn').click(function () {
-        $("#searchBar").addClass('show');
-        $('.mainContent').addClass('goDown');
-
+        var sb = $("#searchBar");
+        if (sb.hasClass('show')) {
+            sb.removeClass('show');
+        } else {
+            sb.addClass('show');
+            $('#searchTxt').val('');
+            $( "#searchTxt" ).focus();
+        }
     });
 
     $(document).click(function (event) {
