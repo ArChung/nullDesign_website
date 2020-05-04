@@ -34,8 +34,8 @@ function initLottie() {
     menu_ani = lottie.loadAnimation({
         container: $('#menuToggleBtn .lottie')[0], // 裝動畫的容器
         renderer: 'svg',
-        autoplay: true,
-        loop: true,
+        autoplay: false,
+        // loop: true,
         path: './lottie/menu.json' // 動畫json 檔
     });
 }
@@ -54,61 +54,95 @@ function initGallery() {
 
     inView(lazyImg)
         .on('enter', function (el) {
+            var card = $(el).closest('.card');
+            var d = (card.index() == 0) ? 0 : Math.random() * 300;
             setTimeout(function () {
-                $(el).closest('.card').addClass('enter moblie_enter');
-            }, Math.random() * 300)
+                card.addClass('enter moblie_enter');
+            }, d)
         })
         .on('exit', function (el) {
             $(el).closest('.card').removeClass('moblie_enter');
         });
 
+    function showInfo(card) {
+        var tl = new TimelineMax();
+        TweenMax.killChildTweensOf(card);
+
+        tl.set(card.find('.ani-text > *'), {
+                y: '-100%'
+            })
+            .staggerTo(card.find('.ani-text > *'), 1, {
+                y: '0%'
+            }, 0.15)
+    }
+
+
+    function hideInfo(card) {
+        var tl = new TimelineMax();
+        TweenMax.killChildTweensOf(card);
+
+        tl.staggerTo(card.find('.ani-text > *'), 1, {
+            y: '100%',
+            ease: Power1.easeIn
+        }, -0.15)
+    }
 
 
 
     $('.gallery .card').on('mouseenter', function (e) {
-        var t = $(this);
-        var delay = 0.15;
-        var count = 0;
-        t.find('.ani-text').each(function () {
-            var tt = $(this).find('>*');
-            TweenMax.killTweensOf(tt);
+        var t = $(this)
+        showInfo(t);
+        // var t = $(this);
+        // var delay = 0.15;
+        // var count = 0;
+        // t.find('.ani-text').each(function () {
+        //     var tt = $(this).find('>*');
+        //     TweenMax.killTweensOf(tt);
 
-            TweenMax.set(tt, {
-                y: tt.height() * -1
-            })
+        //     TweenMax.set(tt, {
+        //         y: tt.height() * -1
+        //     })
 
-            TweenMax.to(tt, 1, {
-                y: 0,
-                delay: delay * count
-            })
-            count += 1;
-        })
+        //     TweenMax.to(tt, 1, {
+        //         y: 0,
+        //         delay: delay * count
+        //     })
+        //     count += 1;
+        // })
     });
 
     $('.gallery .card').on('mouseleave', function (e) {
-        var t = $(this);
+        // var t = $(this);
+        hideInfo($(this));
+        // var delay = 0.1;
+        // var count = 0;
+        // t.find('.ani-text').each(function () {
+        //     var tt = $(this).find('>*');
 
-        var delay = 0.1;
-        var count = 0;
-        t.find('.ani-text').each(function () {
-            var tt = $(this).find('>*');
+        //     TweenMax.killTweensOf(tt);
 
-            TweenMax.killTweensOf(tt);
-
-            TweenMax.to(tt, 1, {
-                y: tt.height(),
-                delay: delay * count,
-                ease: Power1.easeIn
-            })
-            count += 1;
-        })
+        //     TweenMax.to(tt, 1, {
+        //         y: tt.height(),
+        //         delay: delay * count,
+        //         ease: Power1.easeIn
+        //     })
+        //     count += 1;
+        // })
     });
 }
 
 function initMenu() {
-    // $('.nav').mouseover(function(){
-    //     $('#header .menuUl').addClass('show');
-    // });
+    $('.nav').mouseenter(function () {
+        menu_ani.setDirection(1);
+        menu_ani.play();
+    });
+
+    $('.nav').mouseleave(function () {
+        menu_ani.setDirection(-1);
+        menu_ani.play();
+    });
+
+
 
     // $('#header .menuToggleBtn').mouseleave(function(){
     //     $('#header .menuUl').removeClass('show');
@@ -136,7 +170,10 @@ function initMenu() {
     }
 
     $(".menuToggleBtn").click(function () {
-        $("#header .menuUl").addClass('moblie-open')
+        $("#header .menuUl").addClass('moblie-open');
+    })
+    $(".menuToggleBtn").mouseover(function () {
+        console.log(123123)
     })
 
 }
@@ -146,8 +183,6 @@ function initLineBtnSet() {
         var t = $(this);
         var mom = t.closest('.lineBtnSet');
         var line = mom.find('.line');
-        // console.log(t.offset().left - mom.offet().left);
-        console.log(t.width(), t.offset().left - mom.offset().left);
         line.addClass('show');
         line.css({
             "width": t.width(),
@@ -156,7 +191,6 @@ function initLineBtnSet() {
     })
 
     $(".lineBtnSet").mouseleave(function () {
-        console.log(123);
         var t = $(this);
         t.find('.line').removeClass('show')
     })
@@ -223,7 +257,7 @@ function initSearchBtn() {
         } else {
             sb.addClass('show');
             $('#searchTxt').val('');
-            $( "#searchTxt" ).focus();
+            $("#searchTxt").focus();
         }
     });
 

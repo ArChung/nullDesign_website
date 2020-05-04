@@ -32,8 +32,6 @@ body
 			+lineBtn(#757575)
 		#header
 			background-color: #F2F2F2
-			// .logo
-			// 	+bg('logo-dark.png')
 			.searchBtn
 				+bg('searchBtn-dark.png')
 			.container
@@ -88,16 +86,18 @@ body
 		
 	#logo
 		cursor: pointer
-		width: 222px
-		height: 55px
+		width: 250px
+		+aspect-ratio(222,55)
 		overflow: hidden
-		
 		position: absolute
 		top: 50%
 		left: 50%
 		transform: translateX(-50%) translateY(-50%)
 		.lottie
 			width: 100%
+			position: absolute
+			top: 0
+			left: 0
 			transform: translateY(-38%)
 	.container
 		height: 100%
@@ -204,7 +204,7 @@ body
 					left: 0
 					width: 100%
 					height: 100%
-					background-color: rgba(black,.05)
+					background-color: rgba(black,.1)
 					+opacity(0)
 					+dTime(.6s)
 
@@ -275,7 +275,8 @@ body
 		.card:nth-child(n)
 			+pad
 				width: 50%
-	
+			+phone
+				width: 100%
 	&.g-4
 		.card
 			width: 25%
