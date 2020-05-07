@@ -51,19 +51,43 @@ function initGallery() {
         },
     });
 
-
+    inView.offset({
+        top: 500,
+        bottom: 50,
+    });
     inView(lazyImg)
         .on('enter', function (el) {
             var card = $(el).closest('.card');
             var d = (card.index() == 0) ? 0 : Math.random() * 300;
             setTimeout(function () {
-                card.addClass('enter moblie_enter');
+                card.addClass('enter');
             }, d)
+
+            if(ChungTool.isPhone()){
+                showInfo(card);
+            }
         })
         .on('exit', function (el) {
-            $(el).closest('.card').removeClass('moblie_enter');
+            var card = $(el).closest('.card');
+            if(ChungTool.isPhone()){
+                hideInfo(card);
+            }
         });
 
+
+
+
+
+    $('.gallery .card').on('mouseenter', function (e) {
+        var t = $(this)
+        showInfo(t);
+    });
+
+    $('.gallery .card').on('mouseleave', function (e) {
+        hideInfo($(this));
+    });
+
+    // show info
     function showInfo(card) {
         var tl = new TimelineMax();
         TweenMax.killChildTweensOf(card);
@@ -74,61 +98,26 @@ function initGallery() {
             .staggerTo(card.find('.ani-text > *'), 1, {
                 y: '0%'
             }, 0.15)
+            .to(card.find('.picBox'), 5, {
+                scale: 1,
+                ease: Power1.easeInOut
+            }, 0)
     }
 
-
+    // hide info
     function hideInfo(card) {
         var tl = new TimelineMax();
         TweenMax.killChildTweensOf(card);
 
         tl.staggerTo(card.find('.ani-text > *'), 1, {
-            y: '100%',
-            ease: Power1.easeIn
-        }, -0.15)
+                y: '100%',
+                ease: Power1.easeIn
+            }, -0.15, 'ani-start')
+            .to(card.find('.picBox'), 5, {
+                scale: 1.1,
+                ease: Power1.easeInOut
+            }, 'ani-start')
     }
-
-
-
-    $('.gallery .card').on('mouseenter', function (e) {
-        var t = $(this)
-        showInfo(t);
-        // var t = $(this);
-        // var delay = 0.15;
-        // var count = 0;
-        // t.find('.ani-text').each(function () {
-        //     var tt = $(this).find('>*');
-        //     TweenMax.killTweensOf(tt);
-
-        //     TweenMax.set(tt, {
-        //         y: tt.height() * -1
-        //     })
-
-        //     TweenMax.to(tt, 1, {
-        //         y: 0,
-        //         delay: delay * count
-        //     })
-        //     count += 1;
-        // })
-    });
-
-    $('.gallery .card').on('mouseleave', function (e) {
-        // var t = $(this);
-        hideInfo($(this));
-        // var delay = 0.1;
-        // var count = 0;
-        // t.find('.ani-text').each(function () {
-        //     var tt = $(this).find('>*');
-
-        //     TweenMax.killTweensOf(tt);
-
-        //     TweenMax.to(tt, 1, {
-        //         y: tt.height(),
-        //         delay: delay * count,
-        //         ease: Power1.easeIn
-        //     })
-        //     count += 1;
-        // })
-    });
 }
 
 function initMenu() {

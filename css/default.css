@@ -3573,8 +3573,6 @@ body.light-theme #topBtn .arr {
   -ms-transform: scale(1.1, 1.1);
   -webkit-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
-  transition: transform 6s;
-  will-change: transform;
 }
 .gallery .galleryContainer .card .picBox:after {
   content: "";
@@ -3646,12 +3644,6 @@ body.light-theme #topBtn .arr {
 }
 .gallery:not(.withoutHover) .card {
   cursor: pointer;
-}
-.gallery:not(.withoutHover) .card:hover .picBox {
-  -moz-transform: scale(1, 1);
-  -ms-transform: scale(1, 1);
-  -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);
 }
 .gallery:not(.withoutHover) .card:hover .picBox:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
