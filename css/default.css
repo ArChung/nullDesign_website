@@ -3419,6 +3419,11 @@ body.light-theme #topBtn .arr {
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s;
 }
+@media screen and (max-width: 768px) {
+  .lineBtnSet .line {
+    display: none;
+  }
+}
 
 #header {
   position: fixed;
@@ -3430,7 +3435,7 @@ body.light-theme #topBtn .arr {
   -o-transition: all, 0.6s;
   -webkit-transition: all, 0.6s;
   transition: all, 0.6s;
-  height: 125px;
+  padding: 25px 0;
   will-change: transform;
 }
 #header.hidden {
@@ -3504,19 +3509,49 @@ body.light-theme #topBtn .arr {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-#header .container .nav:hover .menuUl .line {
+@media screen and (max-width: 768px) {
+  #header .container .nav {
+    flex-direction: column;
+  }
+  #header .container .nav .menuUl {
+    flex-direction: column;
+    background-color: #F2F2F2;
+    position: absolute;
+    top: calc(100% - 30px);
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    will-change: max-height;
+    -moz-transition: all, 0.6s;
+    -o-transition: all, 0.6s;
+    -webkit-transition: all, 0.6s;
+    transition: all, 0.6s;
+  }
+  #header .container .nav .menuUl .menuBtn {
+    margin: 0;
+    padding: 25px;
+    font-size: 20px;
+  }
+}
+#header .container .nav:hover .menuUl .line, #header .container .nav.active .menuUl .line {
   bottom: 15%;
 }
-#header .container .nav:hover .menuUl .menuBtn:nth-child(2) a {
+#header .container .nav:hover .menuUl .menuBtn:nth-child(2) a, #header .container .nav.active .menuUl .menuBtn:nth-child(2) a {
   transition-delay: 0.06s;
 }
-#header .container .nav:hover .menuUl .menuBtn:nth-child(3) a {
+#header .container .nav:hover .menuUl .menuBtn:nth-child(3) a, #header .container .nav.active .menuUl .menuBtn:nth-child(3) a {
   transition-delay: 0.12s;
 }
-#header .container .nav:hover .menuUl .menuBtn a {
+#header .container .nav:hover .menuUl .menuBtn a, #header .container .nav.active .menuUl .menuBtn a {
   transform: translateX(0%);
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
+}
+@media screen and (max-width: 768px) {
+  #header .container .nav:hover .menuUl, #header .container .nav.active .menuUl {
+    max-height: 300px;
+  }
 }
 #header .container .searchBtn {
   width: 70px;

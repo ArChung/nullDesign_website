@@ -69,7 +69,8 @@ body
 		&.show
 			+opacity(1)
 			+dTime(.3s)
-
+		+phone 
+			display: none
 
 // header
 #header
@@ -79,7 +80,8 @@ body
 	width: 100%
 	z-index: 2
 	+dTime
-	height: 125px
+	// height: 125px
+	padding: 25px 0
 	will-change: transform
 	&.hidden
 		transform: translateY(-100%)
@@ -106,16 +108,9 @@ body
 		align-items: center
 		.nav
 			display: inline-flex
-			// border: 1px solid #000
-			
-
 			#menuToggleBtn
 				width: 55px
 				height: 55px
-			
-				// .lottie
-				// 	width: 100%
-				// 	transform: translateY(-38%)
 			.menuBox
 				height: 100%
 			.menuUl
@@ -134,8 +129,25 @@ body
 						+dTime(1s)
 						+opacity(0)
 
+			+phone 
+				flex-direction: column
+				.menuUl
+					flex-direction: column
+					background-color: #F2F2F2
+					position: absolute
+					top: calc(100% - 30px)
+					left: 0
+					width: 100%
+					overflow: hidden
+					max-height: 0
+					will-change: max-height
+					+dTime
+					.menuBtn
+						margin: 0
+						padding: 25px
+						font-size: 20px
 
-			&:hover
+			&:hover,&.active
 				.menuUl	
 					.line 
 						bottom: 15%
@@ -149,7 +161,8 @@ body
 						a
 							transform: translateX(0%)
 							+opacity(1)
-		
+					+phone 
+						max-height: 300px
 		.searchBtn
 			+bg('searchBtn.png')
 			position: relative
