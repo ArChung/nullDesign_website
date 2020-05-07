@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // initLoading();
 
-    initLottie();
+    // initLottie();
 
     initTopBtn();
 
@@ -18,27 +18,10 @@ $(document).ready(function () {
 
     initGallery();
 
-
+    FastClick.attach(document.body);
+    
 })
-var logo_ani;
-var menu_ani;
 
-function initLottie() {
-    logo_ani = lottie.loadAnimation({
-        container: $('#logo .lottie')[0], // 裝動畫的容器
-        renderer: 'svg',
-        autoplay: true,
-        path: './lottie/logo.json' // 動畫json 檔
-    });
-
-    menu_ani = lottie.loadAnimation({
-        container: $('#menuToggleBtn .lottie')[0], // 裝動畫的容器
-        renderer: 'svg',
-        autoplay: false,
-        // loop: true,
-        path: './lottie/menu.json' // 動畫json 檔
-    });
-}
 
 function initGallery() {
     var lazyImg = '.lazy';
@@ -63,13 +46,13 @@ function initGallery() {
                 card.addClass('enter');
             }, d)
 
-            if(ChungTool.isPhone()){
+            if (ChungTool.isPhone()) {
                 showInfo(card);
             }
         })
         .on('exit', function (el) {
             var card = $(el).closest('.card');
-            if(ChungTool.isPhone()){
+            if (ChungTool.isPhone()) {
                 hideInfo(card);
             }
         });
@@ -121,50 +104,121 @@ function initGallery() {
 }
 
 function initMenu() {
+
+    var logo_ani;
+    var menu_ani;
+
+
+    logo_ani = lottie.loadAnimation({
+        container: $('#logo .lottie')[0], // 裝動畫的容器
+        renderer: 'svg',
+        autoplay: true,
+        path: './lottie/logo.json' // 動畫json 檔
+    });
+
+    menu_ani = lottie.loadAnimation({
+        container: $('#menuToggleBtn .lottie')[0], // 裝動畫的容器
+        renderer: 'svg',
+        autoplay: false,
+        // loop: true,
+        path: './lottie/menu.json' // 動畫json 檔
+    });
+
+    $('#logo').mouseenter(function () {
+        logo_ani.setDirection(-1);
+        logo_ani.setSpeed(2);
+        logo_ani.play();
+    });
+
+    $('#logo').mouseleave(function () {
+        logo_ani.setDirection(1);
+        logo_ani.setSpeed(1);
+
+        logo_ani.play();
+    });
+
+    // nav
     $('.nav').mouseenter(function () {
-        menu_ani.setDirection(1);
-        menu_ani.play();
+        if (!ChungTool.isPhone()) openNav();
     });
 
     $('.nav').mouseleave(function () {
-        menu_ani.setDirection(-1);
-        menu_ani.play();
+        if (!ChungTool.isPhone()) clozNav();
+    });
+
+    $('.nav').click(function () {
+        var sb = $(".nav");
+        if (sb.hasClass('active')) {
+            clozNav();
+        } else {
+            openNav();
+        }
     });
 
 
+    // searchBtn
+    $('.searchBtn').click(function () {
+        var sb = $("#searchBar");
+        if (sb.hasClass('show')) {
+            clozSearchBar();
+        } else {
+            openSearchBar();
+        }
+    });
 
-    // $('#header .menuToggleBtn').mouseleave(function(){
-    //     $('#header .menuUl').removeClass('show');
-    // });
-    // setInterval(function () {
-    //     console.log(window.pageYOffset);
-    //     if (window.pageYOffset > 5) {
-    //         $('#header').addClass('hidden');
-    //     } else {
-    //         $('#header').removeClass('hidden');
-    //     }
-    // }, 100);
 
+    // click and cloz
+    $(document).click(function (event) {
+        if (!$(event.target).closest("#searchBar,.searchBtn").length) {
+            clozSearchBar();
+        }
+
+        if (!$(event.target).closest(".nav").length) {
+            clozNav();
+        }
+    });
+
+
+    //scroll events
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
+        console.log(currentScrollPos);
+        if (prevScrollpos > currentScrollPos || currentScrollPos < 10) {
             $('#header').removeClass('hidden');
         } else {
             $('#header').addClass('hidden');
-            $('#searchBar').removeClass('show');
-
+            clozSearchBar();
+            clozNav();
         }
         prevScrollpos = currentScrollPos;
     }
 
-    $(".menuToggleBtn").click(function () {
-        $("#header .menuUl").addClass('moblie-open');
-    })
-    $(".menuToggleBtn").mouseover(function () {
-        console.log(123123)
-    })
+    // toggle search bar
+    function openSearchBar() {
+        var sb = $("#searchBar");
+        sb.addClass('show');
+        $('#searchTxt').val('');
+        $("#searchTxt").focus();
+    }
 
+    function clozSearchBar() {
+        $("#searchBar").removeClass('show');
+        $('.mainContent').removeClass('goDown');
+    }
+
+    // toggle nav bar
+    function openNav() {
+        menu_ani.setDirection(1);
+        menu_ani.play();
+        $('.nav').addClass('active');
+    }
+
+    function clozNav() {
+        menu_ani.setDirection(-1);
+        menu_ani.play();
+        $('.nav').removeClass('active');
+    }
 }
 
 function initLineBtnSet() {
@@ -206,29 +260,9 @@ function initLinkdemo() {
         window.location = "./porfolio.html";
     });
 
-    // $('#searchBar').click(function () {
-    //     window.location = "/info.html";
-    // });
-}
-// function initLoading() {
-//     $('.loadingFirst').waitForImages({
-//         finished: function() {
-//             // $('#loading').find('.loadingTxt').html('100');
-//             // simpleHide($('.loadingPage'), 0);
-//             // _gaPV('index');
-//             // $('.mainContainer').removeClass('hide');
-//             // $('.ci').removeClass('hide');
-//             // playAni(getChannelString());
-//         },
-//         each: function(loaded, count, success) {
-//             var r = Math.floor(loaded / count * 100);
-//             // console.log(loaded,count)
-//             // $('.loadingPage').find('.txt').html(r + '%');
 
-//         },
-//         waitForAll: true
-//     });
-// }
+}
+
 
 
 
@@ -239,31 +273,11 @@ function initTopBtn() {
 }
 
 function initSearchBtn() {
-    $('.searchBtn').click(function () {
-        var sb = $("#searchBar");
-        if (sb.hasClass('show')) {
-            sb.removeClass('show');
-        } else {
-            sb.addClass('show');
-            $('#searchTxt').val('');
-            $("#searchTxt").focus();
-        }
-    });
 
-    $(document).click(function (event) {
-        if (!$(event.target).closest("#searchBar,.searchBtn").length) {
-            clozSearchBar();
-        }
+}
 
-        if ($(event.target).closest(".searchBar-cloz").length) {
-            clozSearchBar();
-        }
-    });
-
-    function clozSearchBar() {
-        $("#searchBar").removeClass('show');
-        $('.mainContent').removeClass('goDown');
-    }
+function resetHeader() {
+    $("#searchBar").removeClass('show');
 }
 
 function initSlider() {

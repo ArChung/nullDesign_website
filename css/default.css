@@ -3517,12 +3517,13 @@ body.light-theme #topBtn .arr {
     flex-direction: column;
     background-color: #F2F2F2;
     position: absolute;
-    top: calc(100% - 30px);
+    top: calc(100% - 35px);
     left: 0;
     width: 100%;
     overflow: hidden;
     max-height: 0;
     will-change: max-height;
+    padding: 10px 0;
     -moz-transition: all, 0.6s;
     -o-transition: all, 0.6s;
     -webkit-transition: all, 0.6s;
@@ -3530,26 +3531,26 @@ body.light-theme #topBtn .arr {
   }
   #header .container .nav .menuUl .menuBtn {
     margin: 0;
-    padding: 25px;
+    padding: 20px 39px;
     font-size: 20px;
   }
 }
-#header .container .nav:hover .menuUl .line, #header .container .nav.active .menuUl .line {
+#header .container .nav.active .menuUl .line {
   bottom: 15%;
 }
-#header .container .nav:hover .menuUl .menuBtn:nth-child(2) a, #header .container .nav.active .menuUl .menuBtn:nth-child(2) a {
+#header .container .nav.active .menuUl .menuBtn:nth-child(2) a {
   transition-delay: 0.06s;
 }
-#header .container .nav:hover .menuUl .menuBtn:nth-child(3) a, #header .container .nav.active .menuUl .menuBtn:nth-child(3) a {
+#header .container .nav.active .menuUl .menuBtn:nth-child(3) a {
   transition-delay: 0.12s;
 }
-#header .container .nav:hover .menuUl .menuBtn a, #header .container .nav.active .menuUl .menuBtn a {
+#header .container .nav.active .menuUl .menuBtn a {
   transform: translateX(0%);
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 @media screen and (max-width: 768px) {
-  #header .container .nav:hover .menuUl, #header .container .nav.active .menuUl {
+  #header .container .nav.active .menuUl {
     max-height: 300px;
   }
 }

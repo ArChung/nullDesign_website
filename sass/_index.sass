@@ -135,19 +135,20 @@ body
 					flex-direction: column
 					background-color: #F2F2F2
 					position: absolute
-					top: calc(100% - 30px)
+					top: calc(100% - 35px)
 					left: 0
 					width: 100%
 					overflow: hidden
 					max-height: 0
 					will-change: max-height
+					padding: 10px 0
 					+dTime
 					.menuBtn
 						margin: 0
-						padding: 25px
+						padding: 20px 39px
 						font-size: 20px
 
-			&:hover,&.active
+			=showNav
 				.menuUl	
 					.line 
 						bottom: 15%
@@ -163,6 +164,12 @@ body
 							+opacity(1)
 					+phone 
 						max-height: 300px
+
+			&.active
+				+showNav
+			// &:hover		
+			// 	+pc
+			// 		+showNav
 		.searchBtn
 			+bg('searchBtn.png')
 			position: relative
