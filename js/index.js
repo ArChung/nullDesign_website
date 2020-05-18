@@ -20,8 +20,24 @@ $(document).ready(function () {
 
     FastClick.attach(document.body);
 
+    initCreditsWrap();
+
 })
 
+function initCreditsWrap() {
+    $(".creditsWrap .toggle-btn").click(function () {
+        var t = $(this).closest('.creditsWrap');
+        console.log(t.find('.credits-content').height());
+        var h = (t.hasClass('show')) ? 0 : t.find('.credits-content').outerHeight();
+        t.find('.toggle-height').css({
+            'height': h
+        })
+
+        t.toggleClass('show');
+    });
+
+
+}
 
 function initGallery() {
     var lazyImg = '.lazy';
@@ -46,7 +62,7 @@ function initGallery() {
                 card.addClass('enter');
             }, d)
 
-            if (ChungTool.isPhone()&&!card.hasClass('show')) {
+            if (ChungTool.isPhone() && !card.hasClass('show')) {
                 showInfo(card);
             }
         })

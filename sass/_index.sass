@@ -11,6 +11,9 @@ html,body
 	margin-left: auto
 	margin-right: auto
 	width: 100%
+	&.narrow
+		max-width: 1200px
+	
 
 *
 	box-sizing: border-box
@@ -22,6 +25,8 @@ html,body
 	min-height: 100vh
 	background-color: #00000C
 	overflow: hidden
+	
+
 	
 body
 	&.light-theme
@@ -44,10 +49,12 @@ body
 
 
 .btn
-	+lineBtn(white)
+	+pc
+		+lineBtn(white)
 
 .light-btn
-	+lineBtn(#757575)
+	+pc
+		+lineBtn(#757575)
 
 .mainContent
 	+dTime
@@ -187,15 +194,9 @@ body
 		padding-bottom: 70px
 		.card
 			padding: 7px
-			// width: 25%
 			transform: translateY(70px)
 			will-change: transform
-			// height: 480px
-			// +dTime(1.2s)
 			+opacity(0)
-			// +pad
-			// 	width: 50%
-			// 	height: 320px
 			+transition(transform,1.2s) 
 			
 
@@ -253,10 +254,9 @@ body
 				padding: 25px
 				color: #fff
 				&.member
-					+phone 
-						display: flex
-						flex-direction: column
-						justify-content: flex-end
+					display: flex
+					flex-direction: column
+					justify-content: flex-end
 						
 				.ani-text
 					position: relative
@@ -338,23 +338,32 @@ body
 			+pad
 				width: 50% !important
 				height: 400px
+				padding: 15px
 			+phone
 				width: 50% !important
+
 			
 .clients
 	.clientsContainer
 		display: flex
 		flex-wrap: wrap
 		justify-content: center
+		+phone 
+			justify-content: space-between
+
 		.pic
 			margin: 15px 50px
 			padding: 15px 0
 			display: flex
 			height: 150px
 			align-items: center
+			+phone 
+				height: 80px
+				margin: 20px 20px
 			img 
 				max-height: 100%
-
+				
+		
 #topBtn
 	// text-align: center
 	cursor: pointer
@@ -430,7 +439,7 @@ body
 			&:hover
 				+opacity(0.7)
 		+phone 
-			margin-right: -17px
+			margin-right: -25px
 			.tag
 				font-size: 26px
 				margin: 10px
@@ -457,6 +466,8 @@ body
 .infoSlider
 	.slide
 		height: 455px
+		+phone
+			height: 300px
 	
 
 .slider
@@ -491,7 +502,9 @@ body
 	padding: 15px
 .styleSlider
 	.slide
-		height: 924px
+		height: 450px
+		+phone 
+			height: 320px
 .picWrap
 	display: flex
 	flex-wrap: wrap
@@ -510,11 +523,33 @@ body
 	padding: 25px
 	margin-left: auto
 	margin-right: auto
-	.toggleBtn
+	.toggle-height
+		height: 0
+		overflow: hidden
+		+dTime
+	
+	.toggle-btn
+		display: inline-block
+		cursor: pointer
+		+phone 
+			font-size: 35px
+		.toggle-icon
+			margin-left: 30px
+			+dTime(.3s)
+			will-change: transform
+			display: inline-block
+	&.show
+		.toggle-btn
+			.toggle-icon
+				transform: rotate(135deg)
+
 	.credits-content
 		display: flex
 		flex-wrap: wrap
 		span
 			width: 50%
 			padding-right: 21px
+			+phone
+				width: 100%
+				font-size: 22px
 
