@@ -19,7 +19,7 @@ $(document).ready(function () {
     initGallery();
 
     FastClick.attach(document.body);
-    
+
 })
 
 
@@ -46,15 +46,15 @@ function initGallery() {
                 card.addClass('enter');
             }, d)
 
-            if (ChungTool.isPhone()) {
+            if (ChungTool.isPhone()&&!card.hasClass('show')) {
                 showInfo(card);
             }
         })
         .on('exit', function (el) {
             var card = $(el).closest('.card');
-            if (ChungTool.isPhone()) {
-                hideInfo(card);
-            }
+            // if (ChungTool.isPhone()) {
+            //     hideInfo(card);
+            // }
         });
 
 
@@ -85,6 +85,8 @@ function initGallery() {
                 scale: 1,
                 ease: Power1.easeInOut
             }, 0)
+
+        card.addClass('show');
     }
 
     // hide info
@@ -99,7 +101,9 @@ function initGallery() {
             .to(card.find('.picBox'), 5, {
                 scale: 1.1,
                 ease: Power1.easeInOut
-            }, 'ani-start')
+            }, 'ani-start');
+
+        card.removeClass('show');
     }
 }
 

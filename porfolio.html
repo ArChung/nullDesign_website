@@ -41,40 +41,31 @@
 
   <!-- archung js -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/in-view@0.6.1/dist/in-view.min.js"></script> -->
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@13.0.1/dist/lazyload.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/in-view@0.6.1/dist/in-view.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.8/lottie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@15.1.1/dist/lazyload.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"
+      integrity="sha256-t6SrqvTQmKoGgi5LOl0AUy+lBRtIvEJ+++pLAsfAjWs=" crossorigin="anonymous"></script>
   <script src="js/lib/TweenMax.min.js"></script>
+  <script src="js/lib/TimelineMax.min.js"></script>
   <script type="text/javascript" src="js/ChungTool.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 
 </head>
 
 <body class="light-theme">
-  <div id="searchBar" class='shadowDiv'>
-    <div class="container">
-      <div class="searchBtn"></div>
-      <div class="inputBox">
-        <input type="text" name="" id="searchTxt" placeholder="Search...">
-        <div class="tagBox searchTxt mt-2">
-          <div class="tag light-btn">All</div>
-          <div class="tag light-btn">3D</div>
-          <div class="tag light-btn">2D</div>
-          <div class="tag light-btn">Character</div>
-          <div class="tag light-btn">Design</div>
-          <div class="tag light-btn">Cel</div>
-          <div class="tag light-btn">Illustration</div>
-        </div>
-      </div>
-      <div class="searchBar-cloz clozBtn light-btn"></div>
-    </div>
-  </div>
-  <div class="mainContainer">
+
+  <div class="mainContainer ">
     <div id="header">
-      <div class="logo"></div>
+      <div id="logo">
+        <div class="lottie"></div>
+      </div>
       <div class="container">
         <div class="nav">
-          <div class="menuToggleBtn"></div>
+          <div id="menuToggleBtn">
+            <div class="lottie"></div>
+          </div>
           <ul class="menuUl lineBtnSet">
             <li class='menuBtn lineBtn'><a href="#">featured.</a></li>
             <li class='menuBtn lineBtn'><a href="#">info.</a></li>
@@ -82,7 +73,27 @@
             <div class="line"></div>
           </ul>
         </div>
-        <div class="searchBtn btn"></div>
+
+        <div id="searchBar" class='shadowDiv'>
+          <div class="container">
+            <div class="inputBox">
+              <form action="">
+                <input type="search" name="" id="searchTxt" placeholder="Search...">
+                <input type="submit" value="" style="display: none;">
+              </form>
+              <div class="tagBox mt-2">
+                <div class="tag">all.</div>
+                <div class="tag">3D.</div>
+                <div class="tag">2D.</div>
+                <div class="tag">character.</div>
+                <div class="tag">design.</div>
+                <div class="tag">cel.</div>
+                <div class="tag">illustration.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="searchBtn"></div>
       </div>
     </div>
 
@@ -90,9 +101,9 @@
       <div class="container">
         <div class="videoWrap mt-2">
           <div style="padding:56.25% 0 0 0;position:relative;">
-            <iframe src="https://player.vimeo.com/video/126931478?autoplay=1&color=749ba9&byline=0&portrait=0"
+            <iframe src="https://player.vimeo.com/video/126931478?color=749ba9&byline=0&portrait=0&playsinline=0"
               style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0"
-              allow="autoplay; fullscreen" allowfullscreen></iframe>
+              allow="fullscreen" allowfullscreen></iframe>
           </div>
           <script src="https://player.vimeo.com/api/player.js"></script>
         </div>

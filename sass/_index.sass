@@ -141,12 +141,12 @@ body
 					overflow: hidden
 					max-height: 0
 					will-change: max-height
-					padding: 10px 0
+					padding: 15px 0
 					+dTime
 					.menuBtn
 						margin: 0
-						padding: 20px 39px
-						font-size: 20px
+						padding: 15px 39px
+						font-size: 27px
 
 			=showNav
 				.menuUl	
@@ -187,15 +187,16 @@ body
 		padding-bottom: 70px
 		.card
 			padding: 7px
-			width: 25%
+			// width: 25%
 			transform: translateY(70px)
 			will-change: transform
-			height: 480px
-			+dTime(1.2s)
+			// height: 480px
+			// +dTime(1.2s)
 			+opacity(0)
-			+pad
-			width: 50%
-
+			// +pad
+			// 	width: 50%
+			// 	height: 320px
+			+transition(transform,1.2s) 
 			
 
 			.c-container
@@ -251,6 +252,12 @@ body
 				left: 0
 				padding: 25px
 				color: #fff
+				&.member
+					+phone 
+						display: flex
+						flex-direction: column
+						justify-content: flex-end
+						
 				.ani-text
 					position: relative
 					overflow: hidden
@@ -259,10 +266,33 @@ body
 						will-change: transform
 						transform: translateY(-500px)
 				.client-name
-					font-size: 20px
+					> *
+						font-size: 36px
+						+phone 
+							font-size: 28px
+
+					
 				.project-name
-					font-size: 32px
-					font-weight: bold
+					> *
+						font-size: 32px
+						font-weight: bold
+						+phone 
+							font-size: 26px
+
+				.member-title
+					> *
+						font-size: 25px
+						+phone 
+							font-size: 18px
+
+					
+				.member-name
+					> *
+						font-size: 28px
+						font-weight: bold
+						+phone 
+							font-size: 20px
+					
 					
 			
 			&.enter.loaded
@@ -280,7 +310,7 @@ body
 				.picBox:after
 					+opacity(1) 
 			
-
+	
 
 
 	&.gallery-irregular
@@ -290,16 +320,26 @@ body
 			width: 25%
 		.card:nth-child(13n+3),.card:nth-child(13n+7),.card:nth-child(13n+8),.card:nth-child(13n+13)
 			width: 50%
-		.card:nth-child(n)
-			+pad
-				width: 50%
-			+phone
-				width: 100%
-	&.g-4
+
+	.card	
+		width: 25%
+		height: 450px
+		+pad
+			width: 50% !important
+			height: 320px
+		+phone
+			width: 100% !important
+
+	&.gallery-man
 		.card
 			width: 25%
 			padding: 30px
 			height: 450px
+			+pad
+				width: 50% !important
+				height: 400px
+			+phone
+				width: 50% !important
 			
 .clients
 	.clientsContainer
@@ -366,7 +406,9 @@ body
 	&.show
 		transform: translateY(0%)
 	.container
-		padding: 43px 100px 20px 0px
+		padding: 43px 100px 20px 50px
+		+phone 
+			padding: 38px 110px 20px 50px
 		.inputBox
 			width: 100%
 			display: flex
@@ -378,6 +420,7 @@ body
 		display: flex
 		flex-wrap: wrap
 		margin-right: -14px
+		justify-content: flex-end
 		.tag
 			font-size: 18px
 			font-weight: lighter
@@ -386,6 +429,11 @@ body
 			cursor: pointer
 			&:hover
 				+opacity(0.7)
+		+phone 
+			margin-right: -17px
+			.tag
+				font-size: 26px
+				margin: 10px
 
 	#searchTxt
 		font-size: 28px
@@ -402,7 +450,8 @@ body
 			color: #95958f
 		&::-ms-input-placeholder	
 			color: #95958f
-
+		+phone 
+			font-size: 30px
 
 //info
 .infoSlider
@@ -423,7 +472,10 @@ body
 		width: 50%
 		height: 100%
 		z-index: 2
+		// pointer-events: none
 		// border: 1px solid #000
+		+phone 
+			pointer-events: none
 		&.slick-next
 			right: 0
 			cursor: url('../images/arrow-right-solid.png'),auto

@@ -3523,7 +3523,7 @@ body.light-theme #topBtn .arr {
     overflow: hidden;
     max-height: 0;
     will-change: max-height;
-    padding: 10px 0;
+    padding: 15px 0;
     -moz-transition: all, 0.6s;
     -o-transition: all, 0.6s;
     -webkit-transition: all, 0.6s;
@@ -3531,8 +3531,8 @@ body.light-theme #topBtn .arr {
   }
   #header .container .nav .menuUl .menuBtn {
     margin: 0;
-    padding: 20px 39px;
-    font-size: 20px;
+    padding: 15px 39px;
+    font-size: 27px;
   }
 }
 #header .container .nav.active .menuUl .line {
@@ -3579,17 +3579,14 @@ body.light-theme #topBtn .arr {
 }
 .gallery .galleryContainer .card {
   padding: 7px;
-  width: 25%;
   transform: translateY(70px);
   will-change: transform;
-  height: 480px;
-  -moz-transition: all, 1.2s;
-  -o-transition: all, 1.2s;
-  -webkit-transition: all, 1.2s;
-  transition: all, 1.2s;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  width: 50%;
+  -moz-transition: -moz-transform, 1.2s;
+  -o-transition: -o-transform, 1.2s;
+  -webkit-transition: -webkit-transform, 1.2s;
+  transition: transform, 1.2s;
 }
 .gallery .galleryContainer .card .c-container {
   width: 100%;
@@ -3654,6 +3651,13 @@ body.light-theme #topBtn .arr {
   padding: 25px;
   color: #fff;
 }
+@media screen and (max-width: 768px) {
+  .gallery .galleryContainer .card .txtBox.member {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
 .gallery .galleryContainer .card .txtBox .ani-text {
   position: relative;
   overflow: hidden;
@@ -3663,12 +3667,39 @@ body.light-theme #topBtn .arr {
   will-change: transform;
   transform: translateY(-500px);
 }
-.gallery .galleryContainer .card .txtBox .client-name {
-  font-size: 20px;
+.gallery .galleryContainer .card .txtBox .client-name > * {
+  font-size: 36px;
 }
-.gallery .galleryContainer .card .txtBox .project-name {
+@media screen and (max-width: 768px) {
+  .gallery .galleryContainer .card .txtBox .client-name > * {
+    font-size: 28px;
+  }
+}
+.gallery .galleryContainer .card .txtBox .project-name > * {
   font-size: 32px;
   font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .gallery .galleryContainer .card .txtBox .project-name > * {
+    font-size: 26px;
+  }
+}
+.gallery .galleryContainer .card .txtBox .member-title > * {
+  font-size: 25px;
+}
+@media screen and (max-width: 768px) {
+  .gallery .galleryContainer .card .txtBox .member-title > * {
+    font-size: 18px;
+  }
+}
+.gallery .galleryContainer .card .txtBox .member-name > * {
+  font-size: 28px;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .gallery .galleryContainer .card .txtBox .member-name > * {
+    font-size: 20px;
+  }
 }
 .gallery .galleryContainer .card.enter.loaded {
   transform: translateY(0px);
@@ -3694,20 +3725,36 @@ body.light-theme #topBtn .arr {
 .gallery.gallery-irregular .card:nth-child(13n+3), .gallery.gallery-irregular .card:nth-child(13n+7), .gallery.gallery-irregular .card:nth-child(13n+8), .gallery.gallery-irregular .card:nth-child(13n+13) {
   width: 50%;
 }
+.gallery .card {
+  width: 25%;
+  height: 450px;
+}
 @media screen and (max-width: 1024px) {
-  .gallery.gallery-irregular .card:nth-child(n) {
-    width: 50%;
+  .gallery .card {
+    width: 50% !important;
+    height: 320px;
   }
 }
 @media screen and (max-width: 768px) {
-  .gallery.gallery-irregular .card:nth-child(n) {
-    width: 100%;
+  .gallery .card {
+    width: 100% !important;
   }
 }
-.gallery.g-4 .card {
+.gallery.gallery-man .card {
   width: 25%;
   padding: 30px;
   height: 450px;
+}
+@media screen and (max-width: 1024px) {
+  .gallery.gallery-man .card {
+    width: 50% !important;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .gallery.gallery-man .card {
+    width: 50% !important;
+  }
 }
 
 .clients .clientsContainer {
@@ -3802,7 +3849,12 @@ body.light-theme #topBtn .arr {
   transform: translateY(0%);
 }
 #searchBar .container {
-  padding: 43px 100px 20px 0px;
+  padding: 43px 100px 20px 50px;
+}
+@media screen and (max-width: 768px) {
+  #searchBar .container {
+    padding: 38px 110px 20px 50px;
+  }
 }
 #searchBar .container .inputBox {
   width: 100%;
@@ -3814,6 +3866,7 @@ body.light-theme #topBtn .arr {
   display: flex;
   flex-wrap: wrap;
   margin-right: -14px;
+  justify-content: flex-end;
 }
 #searchBar .tagBox .tag {
   font-size: 18px;
@@ -3825,6 +3878,15 @@ body.light-theme #topBtn .arr {
 #searchBar .tagBox .tag:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
+}
+@media screen and (max-width: 768px) {
+  #searchBar .tagBox {
+    margin-right: -17px;
+  }
+  #searchBar .tagBox .tag {
+    font-size: 26px;
+    margin: 10px;
+  }
 }
 #searchBar #searchTxt {
   font-size: 28px;
@@ -3845,6 +3907,11 @@ body.light-theme #topBtn .arr {
 }
 #searchBar #searchTxt::-ms-input-placeholder {
   color: #95958f;
+}
+@media screen and (max-width: 768px) {
+  #searchBar #searchTxt {
+    font-size: 30px;
+  }
 }
 
 .infoSlider .slide {
@@ -3871,6 +3938,11 @@ body.light-theme #topBtn .arr {
   width: 50%;
   height: 100%;
   z-index: 2;
+}
+@media screen and (max-width: 768px) {
+  .slider .slick-arrow {
+    pointer-events: none;
+  }
 }
 .slider .slick-arrow.slick-next {
   right: 0;
